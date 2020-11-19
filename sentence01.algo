@@ -1,0 +1,30 @@
+ALGORITHM sentence
+VAR
+    phrase: STRING := "assuming that the words are separated by a single space.";
+    vowelsArray[6]: CHAR:= ["a", "e", "i", "o", "y", "u"];
+    wordnbr: INTEGER := 0;
+    vowelsnbr: INTEGER := 0;
+    i : INTEGER;
+    J : INTEGER;
+    k : INTEGER;
+    length : INTEGER := 0;
+BEGIN
+    Read(phrase);
+    WHILE (phrase[k]!=".") DO
+        length := length+1;
+    END_WHILE
+    FOR i FROM 1 TO length DO
+        FOR j FROM 1 TO 6 DO
+            IF (phrase[i]=vowelsArray[j]) THEN
+                vowelsnbr:=vowelsnbr+1;
+            ELSE IF (phrase[i]=" ")
+                wordnbr:=wordnbr+1;
+            ELSE
+                j:=j+1;
+            END_IF
+        END_FOR
+    END_FOR
+    Write(wordnbr);
+    Write(vowelsnbr);
+    Write(length);
+END
